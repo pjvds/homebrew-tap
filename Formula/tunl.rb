@@ -8,6 +8,7 @@ class Tunl < Formula
   version "0.23.0-4"
   license "MIT"
   bottle :unneeded
+  depends_on "go"
 
   if OS.mac?
     url "https://github.com/pjvds/tunl/releases/download/0.23.0-4/tunl_0.23.0-4_Darwin_x86_64.tar.gz"
