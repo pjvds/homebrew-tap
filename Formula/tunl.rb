@@ -5,25 +5,25 @@
 class Tunl < Formula
   desc "With Tunl you can expose services on your localhost to the public via a fast and secure tunnel."
   homepage "https://tunl.es/"
-  version "0.24.0"
+  version "0.25.0"
   license "MIT"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/pjvds/tunl/releases/download/0.24.0/tunl_0.24.0_Darwin_x86_64.tar.gz"
-    sha256 "7152a42f4902480167553ec33e6fc1d889b0e2bdb012c938d588f58b88f0a706"
+    url "https://github.com/pjvds/tunl/releases/download/0.25.0/tunl_0.25.0_Darwin_x86_64.tar.gz"
+    sha256 "de2ef0a7f28c336e17c9028308e6c7aed5ece8220760a4c2eb25612c674c96bd"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/pjvds/tunl/releases/download/0.24.0/tunl_0.24.0_Linux_x86_64.tar.gz"
-    sha256 "42ddcaca5f7675b2070bc054484dae74a966b9e8d49c2038ed8275aa3560a6f4"
+    url "https://github.com/pjvds/tunl/releases/download/0.25.0/tunl_0.25.0_Linux_x86_64.tar.gz"
+    sha256 "c1c7de34d309ea0d39a42dfa517c62da63dc28eae5b0608a205169d36945bd06"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.24.0/tunl_0.24.0_Linux_armv6.tar.gz"
-    sha256 "6e26091b73d3f1903710bd40e8f579281c47e2e1bda10e27f9bf51c9dc4e17b6"
+    url "https://github.com/pjvds/tunl/releases/download/0.25.0/tunl_0.25.0_Linux_armv6.tar.gz"
+    sha256 "79ccd7146bbbff309fdf0256d14a56cadf1dcc03d83acf536769c7292739359a"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.24.0/tunl_0.24.0_Linux_arm64.tar.gz"
-    sha256 "c26edef0e2a66c8cbf61e7d1d999299eed0ccfeda072925373c2d11d7049a7e6"
+    url "https://github.com/pjvds/tunl/releases/download/0.25.0/tunl_0.25.0_Linux_arm64.tar.gz"
+    sha256 "0b834ef40955fa63ef0a27635c8238d304b0ee2b0bdfc86231244d80c46c594a"
   end
 
   def install
