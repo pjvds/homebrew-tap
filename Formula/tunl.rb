@@ -5,25 +5,29 @@
 class Tunl < Formula
   desc "With Tunl you can expose services on your localhost to the public via a fast and secure tunnel."
   homepage "https://tunl.es/"
-  version "0.33.0"
+  version "0.34.0"
   license "MIT"
   bottle :unneeded
 
-  if OS.mac?
-    url "https://github.com/pjvds/tunl/releases/download/0.33.0/tunl_0.33.0_Darwin_x86_64.tar.gz"
-    sha256 "aa4fc9e03d427710c6a220fcf7ad118fd101c6e9eb66a49bd7f7ac652d823dec"
+  if OS.mac? && Hardware::CPU.intel?
+    url "https://github.com/pjvds/tunl/releases/download/0.34.0/tunl_0.34.0_Darwin_x86_64.tar.gz"
+    sha256 "e9cb733c390f79bc43eb2b5c97f05dde9c9f494f53233a7b62806a244d70b167"
+  end
+  if OS.mac? && Hardware::CPU.arm?
+    url "https://github.com/pjvds/tunl/releases/download/0.34.0/tunl_0.34.0_Darwin_arm64.tar.gz"
+    sha256 "685acd04af467548e3492d54bbe52183010ed0a7318dd5e090dc7b8b386c44f2"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/pjvds/tunl/releases/download/0.33.0/tunl_0.33.0_Linux_x86_64.tar.gz"
-    sha256 "fded1e31e2b45c85b68c2408e5d590f883544b8c8b3564f30c04789e6ff13fbc"
+    url "https://github.com/pjvds/tunl/releases/download/0.34.0/tunl_0.34.0_Linux_x86_64.tar.gz"
+    sha256 "9ab8fb9375fa82eb51a4321de5cae415bed28240b213b1783125c235574bdc27"
   end
   if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.33.0/tunl_0.33.0_Linux_armv6.tar.gz"
-    sha256 "88ff1a3cb32aa8f970fe1c82adcf72c260c84047acd164f903d92ac0a884b3ba"
+    url "https://github.com/pjvds/tunl/releases/download/0.34.0/tunl_0.34.0_Linux_armv6.tar.gz"
+    sha256 "4bd7be21dbb7e4361ecbe1668134f5e44bc70fa0b0c74725f357741a7a367c11"
   end
   if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.33.0/tunl_0.33.0_Linux_arm64.tar.gz"
-    sha256 "10346b94c9b97f759dbe938008697efcce6addad430939e174d5dc8df2c17402"
+    url "https://github.com/pjvds/tunl/releases/download/0.34.0/tunl_0.34.0_Linux_arm64.tar.gz"
+    sha256 "79024b9c0eb422612829a1e277804b97b7a22d8360d77451051ca4aec07a36a3"
   end
 
   def install
