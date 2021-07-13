@@ -5,29 +5,34 @@
 class Tunl < Formula
   desc "With Tunl you can expose services on your localhost to the public via a fast and secure tunnel."
   homepage "https://tunl.es/"
-  version "0.35.0"
+  version "0.35.1"
   license "MIT"
   bottle :unneeded
 
-  if OS.mac? && Hardware::CPU.intel?
-    url "https://github.com/pjvds/tunl/releases/download/0.35.0/tunl_0.35.0_Darwin_x86_64.tar.gz"
-    sha256 "a40931b2bc803a9b9efe3494c80dce3f72888a6b9b3e58b88637359d879dca3f"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://github.com/pjvds/tunl/releases/download/0.35.1/tunl_0.35.1_Darwin_x86_64.tar.gz"
+      sha256 "6da35ab69113aa02936d723fc8ad905e67187f6fc643169b81a0987a29422237"
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/pjvds/tunl/releases/download/0.35.1/tunl_0.35.1_Darwin_arm64.tar.gz"
+      sha256 "bf24e73f8f193e64f904c093261a0dc4d7410e39db53c0c54e6393603924add4"
+    end
   end
-  if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/pjvds/tunl/releases/download/0.35.0/tunl_0.35.0_Darwin_arm64.tar.gz"
-    sha256 "8d070a0cb96e7c0c5b0a97cf490fed76325f89d3eecb6a5b13741627df7286e7"
-  end
-  if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/pjvds/tunl/releases/download/0.35.0/tunl_0.35.0_Linux_x86_64.tar.gz"
-    sha256 "facbca435fe27acfd740255b10bea4c11e8cc5fcdc05fcdf98768fde8f9a21c6"
-  end
-  if OS.linux? && Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.35.0/tunl_0.35.0_Linux_armv6.tar.gz"
-    sha256 "40b7caebb2f2f4d6438ebd328ad34b41cf085374485e3565fde674e2d0c3a84e"
-  end
-  if OS.linux? && Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/pjvds/tunl/releases/download/0.35.0/tunl_0.35.0_Linux_arm64.tar.gz"
-    sha256 "32978a19a5b10a6a473eee9ac0e91ebfdfbcd3fb718e9f4d8cd344eabe72b683"
+
+  on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/pjvds/tunl/releases/download/0.35.1/tunl_0.35.1_Linux_x86_64.tar.gz"
+      sha256 "13d5e229caeaa3cba300ebb56a64514087fd7dc6c2bf7d32c61e352b802d465c"
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/pjvds/tunl/releases/download/0.35.1/tunl_0.35.1_Linux_armv6.tar.gz"
+      sha256 "ebcace0569dc909f89bce4ae117537c172f87675a4eaa9dc83f24d1dbb596507"
+    end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/pjvds/tunl/releases/download/0.35.1/tunl_0.35.1_Linux_arm64.tar.gz"
+      sha256 "0231f1cac22fbd49f76e34cc18676b68fbbdb87c86c55d3c47fb76ef3ebc7135"
+    end
   end
 
   def install
